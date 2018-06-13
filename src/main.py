@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from preprocessing import save_letters
+from preprocessing import save_letters, reshape_letters
 
 if __name__ == "__main__":
 
@@ -73,4 +73,5 @@ if __name__ == "__main__":
         letters.append(letter_row)
 
     # variable letters has all letters... this is 2 dim table of format letters[row][letter].
-    save_letters(letters)
+    saved_letters = save_letters(letters)
+    reshape_letters(saved_letters)
