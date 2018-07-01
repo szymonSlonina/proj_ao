@@ -86,7 +86,9 @@ def reshape(letter_path):
     im = cv2.imread(letter_path, 0)
     im = remove_redundant_top(im)
     im = remove_redundant_bottom(im)
+    im = cv2.bitwise_not(im)
     im = cv2.resize(im, (28, 28), interpolation=cv2.INTER_CUBIC)
+    ret, im = cv2.threshold(im, 0, 255, cv2.THRESH_OTSU)
     return im
 
 
