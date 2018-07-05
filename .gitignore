@@ -3,7 +3,6 @@ src/.idea
 src/resources/datasets/test_dataset.csv
 src/resources/datasets/train_dataset.csv
 src/resources/test_letters/*
-src/resources/train_dataset/Fnt_preproc/*
 .idea/inspectionProfiles
 .idea/misc.xml
 .idea/projekt.iml
@@ -11,5 +10,6 @@ src/resources/train_dataset/Fnt_preproc/*
 src/__pycache__/
 src/im_prep/__pycache__/
 src/resources/__pycache__/
-src/resources/train_dataset/Fnt_preproc/
+src/resources/train_dataset/Fnt_preproc/*
+!src/resources/train_dataset/Fnt_preproc/file_for_structure.txt
 src/resources/train_dataset/__pycache__/
