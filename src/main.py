@@ -71,9 +71,11 @@ if __name__ == "__main__":
                 im = cv2.imread(TRAIN_PICTURES_PATH + os.sep + letter_dir + os.sep + photo, 0)
                 im = cv2.bitwise_not(im)
 
+                black_pixels = np.count_nonzero(im)
+
                 im = np.reshape(im, 32*32)
                 for data in im:
-                    file.write(str(data))
+                    file.write(str(data/(255 * black_pixels)))
                     file.write(',')
                 file.write(str(train_indexes[ind]))
                 file.write('\n')
@@ -95,9 +97,11 @@ if __name__ == "__main__":
             im = cv2.imread(TEST_LETTERS_PATH + os.sep +letter_dir, 0)
             im = cv2.bitwise_not(im)
 
+            black_pixels = np.count_nonzero(im)
+
             im = np.reshape(im, 32*32)
             for data in im:
-                file.write(str(data))
+                file.write(str(data/(255 * black_pixels)))
                 file.write(',')
             file.write('\n')
 
