@@ -9,12 +9,12 @@ import src.resources.train_dataset.process_pictures as proc_train
 
 if __name__ == "__main__":
 
-    RUN_MODELING = True
+    RUN_MODELING = False  # to jest flaga do budowy modelu... potrzeba mieć dane w datasets katalogu
 
-    REPROCESS_TEST_LETTERS = False
-    REPROCESS_TRAIN_LETTERS = False
-    REPROCESS_TEST_DATA = False
-    REPROCESS_TRAIN_DATA = False
+    REPROCESS_TEST_LETTERS = False      #to jest flaga do preprocessowania zdjęć testowych
+    REPROCESS_TRAIN_LETTERS = False     #to jest flaga do preprocessowania zdjęć treningowych
+    REPROCESS_TEST_DATA = False         #to jest flaga do robienia datasetu z testowych spreprocesowanych zdjęć
+    REPROCESS_TRAIN_DATA = False        #to jest flaga do robienia datasetu z treningowych spreprocesowanych zdjęć
 
     TEST_DATASET_PATH = 'resources' + os.sep + 'datasets' + os.sep + 'test_dataset.csv'
     TRAIN_DATASET_PATH = 'resources' + os.sep + 'datasets' + os.sep + 'train_dataset.csv'
