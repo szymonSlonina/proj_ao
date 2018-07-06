@@ -12,6 +12,28 @@ def skeletonise(letters):
     return letters
 
 
+def segmentation_train(im):
+    while True:
+        temp = 0
+        if np.all(im[0, :] == 255):
+            im = im[1:, 0:]
+            temp += 1
+        if np.all(im[-1, 0:] == 255):
+            im = im[0:-1, 0:]
+            temp += 1
+        if np.all(im[0:, 0] == 255):
+            im = im[0:, 1:]
+            temp += 1
+        if np.all(im[0:, -1] == 255):
+            im = im[0:, 0:-1]
+            temp += 1
+
+        if temp == 0:
+            break
+
+    letter = [[im]]
+    return letter
+
 def segmentation(im):
     # extracting rows of text
     text_row = []

@@ -8,12 +8,12 @@ import src.im_prep.functions as fun
 
 def preprocess():
     CWD = os.getcwd()
-    RAW_LETTERS_DIR = CWD + os.sep + 'Fnt'
-    PREPROCESSED_LETTERS_DIR = CWD + os.sep + 'Fnt_preproc'
+    RAW_LETTERS_DIR = CWD + os.sep + 'resources' + os.sep + 'train_dataset' + os.sep + 'Fnt'
+    PREPROCESSED_LETTERS_DIR = CWD + os.sep + 'resources' + os.sep + 'train_dataset' + os.sep + 'Fnt_preproc'
 
     #get all catalogues in raw letters dir
     raw_letters_dir_dirs = os.listdir(RAW_LETTERS_DIR)
-    for letter_dir in raw_letters_dir_dirs:
+    for ind1, letter_dir in enumerate(raw_letters_dir_dirs):
 
         #if this dir is not in Fnt_preproc, we have to create it
         if not os.path.exists(PREPROCESSED_LETTERS_DIR + os.sep + letter_dir):
@@ -26,8 +26,10 @@ def preprocess():
 
             current_pic = RAW_LETTERS_DIR + os.sep + letter_dir + os.sep + letter
             im = cv2.imread(current_pic, 0)
-            letters = fun.segmentation(im)
+            letters = fun.segmentation_train(im)
             letters = fun.resize_binarize(letters)
             letters = fun.skeletonise(letters)
 
             cv2.imwrite(PREPROCESSED_LETTERS_DIR + os.sep + letter_dir + os.sep + letter, letters[0][0])
+
+        print(ind1)

@@ -1,12 +1,9 @@
 venv
 src/.idea
+.idea/
 src/resources/datasets/test_dataset.csv
 src/resources/datasets/train_dataset.csv
 src/resources/test_letters/*
-.idea/inspectionProfiles
-.idea/misc.xml
-.idea/projekt.iml
-.idea/workspace.xml
 src/__pycache__/
 src/im_prep/__pycache__/
 src/resources/__pycache__/
